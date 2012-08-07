@@ -1,0 +1,27 @@
+﻿body {
+    flex-align:center;
+    top:500px;
+    bottom:200px;
+    background-image:url('/images/SpiderMan.jpg');
+    background-repeat:no-repeat;
+    background-position:top;
+}
+
+div {
+    margin-top:350px;
+    font-size:20px;
+    color:#0094ff;
+   
+}
+
+@media screen and (-ms-view-state: fullscreen-landscape) {
+}
+
+@media screen and (-ms-view-state: filled) {
+}
+
+@media screen and (-ms-view-state: snapped) {
+}
+
+@media screen and (-ms-view-state: fullscreen-portrait) {
+}
