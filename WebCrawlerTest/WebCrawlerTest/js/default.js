@@ -50,26 +50,44 @@
         request.open('GET', input, false);
         request.send(); // because of "false" above, will block until the request is done 
         // and status is available. Not recommended, however it works for simple cases.
-      
+
         if (request.status === 200) {
             //console.log(request.responseText);
             var str = request.responseText;
-           
-            for (var i = 0; i <= str.length; i++)
-            {
+
+            for (var i = 0; i <= str.length; i++) {
                 //console.log(str.length);
-                var n = str.match(/Apple/g);
-                  
+                var st = str.toUpperCase();
+                var n = st.match(/APPLE/g);
+
             }
-           
+
             console.log("Size: " + n.length);
+            var size = n.length;
             var md = new Windows.UI.Popups.MessageDialog("Total Count:" + n.length);
             md.showAsync();
 
         }
-        console.log("Finish");
-     
+        var conc = input + "\t" + size + "\n";
+        var s = Windows.Storage.KnownFolders.picturesLibrary.createFileAsync("sample.txt", Windows.Storage.CreationCollisionOption.generateUniqueName).done(
+       function (file) {
+           //SdkSample.sampleFile = file;
+           //var outputDiv = document.getElementById("output");
+           //outputDiv.innerHTML = "The file '" + file.name + "' was created.";
+           // console.log(JSON.stringify( outputDiv));
+          
+           if (size !== "") {
+               Windows.Storage.FileIO.writeTextAsync(file, conc).done(function () {
+                   //outputDiv.innerHTML = "The following text was written to '" + file.name + "':<br /><br />" + size;
+               },
+               function (error) {
+                   WinJS.log && WinJS.log(error, "sample", "error");
+               });
+           }
 
+       },
+       function (error) {
+           WinJS.log && WinJS.log(error, "sample", "error");
+       });
     }
-    
 })();
