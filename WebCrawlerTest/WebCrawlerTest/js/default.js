@@ -58,6 +58,9 @@
             for (var i = 0; i <= str.length; i++) {
                 //console.log(str.length);
                 var st = str.toUpperCase();
+                var cr = str.getElementsByTagNames('div');
+                console.log(cr);
+                console.log(cr.innerHTML);
                 var n = st.match(/APPLE/g);
 
             }
@@ -68,7 +71,9 @@
             md.showAsync();
 
         }
-        var conc = input + "\t" + size + "\n";
+        var conc = new Array();
+        conc = [input, size];
+        console.log(conc);
         var s = Windows.Storage.KnownFolders.picturesLibrary.createFileAsync("sample.txt", Windows.Storage.CreationCollisionOption.generateUniqueName).done(
        function (file) {
            //SdkSample.sampleFile = file;
