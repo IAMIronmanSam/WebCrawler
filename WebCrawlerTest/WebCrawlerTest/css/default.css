@@ -2,9 +2,9 @@
     flex-align:center;
     top:500px;
     bottom:200px;
-    background-image:url('/images/SpiderMan.jpg');
+    background-image:url('/images/spider_robot.jpg');
     background-repeat:no-repeat;
-    background-position:top;
+    background-position:center;
 }
 
 div {

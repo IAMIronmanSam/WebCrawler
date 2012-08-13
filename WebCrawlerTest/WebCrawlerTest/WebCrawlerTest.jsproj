@@ -55,6 +55,7 @@
     <Content Include="images\logo.png" />
     <Content Include="images\smalllogo.png" />
     <Content Include="images\SpiderMan.jpg" />
+    <Content Include="images\spider_robot.jpg" />
     <Content Include="images\splashscreen.png" />
     <Content Include="images\storelogo.png" />
     <Content Include="js\default.js" />

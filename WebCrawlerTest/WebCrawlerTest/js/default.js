@@ -35,6 +35,8 @@
         ready: function (element, options) {
 
             document.getElementById("crawl").addEventListener("click", crawler, false);
+            document.getElementById("write").addEventListener("click", write, false);
+
         }
     });
 
@@ -58,10 +60,14 @@
             for (var i = 0; i <= str.length; i++) {
                 //console.log(str.length);
                 var st = str.toUpperCase();
-                var cr = str.getElementsByTagNames('div');
-                console.log(cr);
-                console.log(cr.innerHTML);
-                var n = st.match(/APPLE/g);
+               // var cr = str.getElementsByTagNames('div');
+               // console.log(cr);
+                // console.log(cr.innerHTML);
+                if (str == '<div>') {
+                    var n = st.match(/APPLE/g);
+                    console.log("Inside Div");
+                }
+                //else { console.log("Outside Div");}
 
             }
 
@@ -69,26 +75,34 @@
             var size = n.length;
             var md = new Windows.UI.Popups.MessageDialog("Total Count:" + n.length);
             md.showAsync();
+            return size;
 
         }
         var conc = new Array();
         conc = [input, size];
         console.log(conc);
+        return conc;
+        
+        
+    }
+
+    function write()
+    {
         var s = Windows.Storage.KnownFolders.picturesLibrary.createFileAsync("sample.txt", Windows.Storage.CreationCollisionOption.generateUniqueName).done(
        function (file) {
            //SdkSample.sampleFile = file;
            //var outputDiv = document.getElementById("output");
            //outputDiv.innerHTML = "The file '" + file.name + "' was created.";
            // console.log(JSON.stringify( outputDiv));
-          
-           if (size !== "") {
+
+          // if (size !== "") {
                Windows.Storage.FileIO.writeTextAsync(file, conc).done(function () {
                    //outputDiv.innerHTML = "The following text was written to '" + file.name + "':<br /><br />" + size;
                },
                function (error) {
                    WinJS.log && WinJS.log(error, "sample", "error");
                });
-           }
+           //}
 
        },
        function (error) {
