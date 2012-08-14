@@ -58,10 +58,12 @@
         //console.log(xmlDoc);
         // because of "false" above, will block until the request is done 
         // and status is available. Not recommended, however it works for simple cases.
-
+        
         if (request.status === 200) {
             //console.log(request.responseText);
-            var str = request;
+            var str = request.response;
+            console.log(str);
+            console.log(str.getElementById('hero'));
             //str.get
            //  document.getElementById("");
             
