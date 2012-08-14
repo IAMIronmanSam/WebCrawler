@@ -47,41 +47,55 @@
 
         console.log("Entered");
         var input = document.getElementById("text").value;
+        var xmlDoc;
         console.log(input);
         var request = new XMLHttpRequest();
         request.open('GET', input, false);
-        request.send(); // because of "false" above, will block until the request is done 
+        request.responseType = "document";
+        request.send();
+        
+        //xmlDoc = request.responseXML;
+        //console.log(xmlDoc);
+        // because of "false" above, will block until the request is done 
         // and status is available. Not recommended, however it works for simple cases.
 
         if (request.status === 200) {
             //console.log(request.responseText);
-            var str = request.responseText;
+            var str = request;
+            //str.get
+           //  document.getElementById("");
+            
+            WinJS.Utilities.setInnerHTML(test, str);
+            var tes = document.getElementsByClassName('t');
+            //var sample = document.getElementById('test');
+            console.log(str);
+            console.log(tes);
+            console.log(tes.item(0));
+            //for (var i = 0; i <= str.length; i++) {
+            //    //console.log(str.length);
+            //    var st = str.toUpperCase();
+            //    //var cr = sample.getElementsByTagName ('div');
+            //   // console.log(cr);
+            //     //console.log(cr.innerHTML);
+            //   // if (str == '<div>') {
+            //       // var n = st.match(/APPLE/g);
+            //      //  console.log(cr);
+            //  //  }
+            //    //else { console.log("Outside Div");}
 
-            for (var i = 0; i <= str.length; i++) {
-                //console.log(str.length);
-                var st = str.toUpperCase();
-               // var cr = str.getElementsByTagNames('div');
-               // console.log(cr);
-                // console.log(cr.innerHTML);
-                if (str == '<div>') {
-                    var n = st.match(/APPLE/g);
-                    console.log("Inside Div");
-                }
-                //else { console.log("Outside Div");}
+            //}
 
-            }
-
-            console.log("Size: " + n.length);
-            var size = n.length;
-            var md = new Windows.UI.Popups.MessageDialog("Total Count:" + n.length);
-            md.showAsync();
-            return size;
+           // console.log("Size: " + n.length);
+            //var size = n.length;
+            //var md = new Windows.UI.Popups.MessageDialog("Total Count:" + n.length);
+            //md.showAsync();
+            //return size;
 
         }
-        var conc = new Array();
-        conc = [input, size];
-        console.log(conc);
-        return conc;
+        //var conc = new Array();
+        //conc = [input, size];
+        //console.log(conc);
+        //return conc;
         
         
     }
