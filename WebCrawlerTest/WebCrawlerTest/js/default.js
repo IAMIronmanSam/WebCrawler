@@ -63,16 +63,24 @@
             //console.log(request.responseText);
             var str = request.response;
             console.log(str);
-            console.log(str.getElementById('hero'));
+            console.log("-----------------------------------------");
+           // console.log(str.getElementsByTagName("span"));
+            var it = str.getElementsByTagName("span") //Element Switcher
+            console.log("Element: " + it);  //HTML Element
+            console.log("Element Count: "+it.length); //Total Count Of Elements
+            console.log("Content: "+it.item(1).innerHTML); //Content of the HTML Element
+            console.log("-----------------------------------------");
+            var md = new Windows.UI.Popups.MessageDialog("Element: " + it+"\n"+"Element Count: " + it.length+"\n"+"Content: " + it.item(1).innerHTML);
+            md.showAsync();
             //str.get
            //  document.getElementById("");
             
-            WinJS.Utilities.setInnerHTML(test, str);
-            var tes = document.getElementsByClassName('t');
-            //var sample = document.getElementById('test');
-            console.log(str);
-            console.log(tes);
-            console.log(tes.item(0));
+            //WinJS.Utilities.setInnerHTML(test, str);
+            //var tes = document.getElementsByClassName('t');
+            ////var sample = document.getElementById('test');
+            //console.log(str);
+            //console.log(tes);
+            //console.log(tes.item(0));
             //for (var i = 0; i <= str.length; i++) {
             //    //console.log(str.length);
             //    var st = str.toUpperCase();
