@@ -64,13 +64,18 @@
             var str = request.response;
             console.log(str);
             console.log("-----------------------------------------");
-           // console.log(str.getElementsByTagName("span"));
-            var it = str.getElementsByTagName("span") //Element Switcher
+            // console.log(str.getElementsByTagName("span"));
+            var it = str.getElementsByClassName("home"); //Element Switcher
             console.log("Element: " + it);  //HTML Element
             console.log("Element Count: "+it.length); //Total Count Of Elements
-            console.log("Content: "+it.item(1).innerHTML); //Content of the HTML Element
+            console.log("Content: " + it.item(0)); //Content of the HTML Element
+            for (var i = 0; i < it.length;i++){
+            var con = it.item(i).innerHTML;
+            var n = con.match(/Apple/g);
+            console.log(n.length);
+        }
             console.log("-----------------------------------------");
-            var md = new Windows.UI.Popups.MessageDialog("Element: " + it+"\n"+"Element Count: " + it.length+"\n"+"Content: " + it.item(1).innerHTML);
+            var md = new Windows.UI.Popups.MessageDialog("Element: " + it+"\n"+"Element Count: " + it.length+"\n"+"Content: " + it.innerHTML);
             md.showAsync();
             //str.get
            //  document.getElementById("");
