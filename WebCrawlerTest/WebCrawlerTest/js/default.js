@@ -44,7 +44,7 @@
 
 
     function crawler() {
-
+        var size = 0;
         console.log("Entered");
         var input = document.getElementById("text").value;
         var xmlDoc;
@@ -72,10 +72,15 @@
             for (var i = 0; i < it.length;i++){
             var con = it.item(i).innerHTML;
             var n = con.match(/Apple/g);
-            console.log(n.length);
-        }
+            if (n != undefined || n != null) {
+                //console.log(n);
+                size = size + n.length;
+            }
+            
+            }
+            console.log("size : " + size);
             console.log("-----------------------------------------");
-            var md = new Windows.UI.Popups.MessageDialog("Element: " + it+"\n"+"Element Count: " + it.length+"\n"+"Content: " + it.innerHTML);
+            var md = new Windows.UI.Popups.MessageDialog("Element: " + it + "\n" + "Element Count: " + it.length + "\n" + "Size: " + size);
             md.showAsync();
             //str.get
            //  document.getElementById("");
